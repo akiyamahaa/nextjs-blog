@@ -4,6 +4,7 @@ import config from "@/config/site.config.json";
 import NextTopLoader from "nextjs-toploader";
 
 import "@/styles/styles.scss";
+import { BlogProvider } from "./context/BlogContext";
 
 export const metadata = {
   title: config.metaData.title,
@@ -40,7 +41,7 @@ export default function RootLayout({ children }) {
           height={2}
         />
         <DeviceSizeIndicator />
-        {children}
+        <BlogProvider>{children}</BlogProvider>
       </body>
     </html>
   );

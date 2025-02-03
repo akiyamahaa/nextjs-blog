@@ -1,3 +1,5 @@
+"use client";
+
 import Banner from "@/components/home-1/Banner";
 import Layout from "@/components/home-1/Layout";
 import PostThree from "@/components/posts/Post-3";
@@ -11,8 +13,9 @@ import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/utils/formatDate";
 import Image from "next/image";
 import Link from "next/link";
+import { useBlog } from "./context/BlogContext";
 
-const Home = async () => {
+const Home = () => {
   // homepage data
   const {
     latestArticles,
@@ -21,6 +24,9 @@ const Home = async () => {
     trendingArticles,
     postOfTheWeekSection,
   } = homepageData.frontmatter || {};
+
+  const { allPosts: test, loading } = useBlog();
+  console.log("🚀 ~ Home ~ blogs:", test);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
