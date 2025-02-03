@@ -17,7 +17,7 @@ const PostTwo = ({ post }) => {
             {formatDate(date)}
           </span>
 
-          <h3 className="text-2xl text-dark leading-relaxed mb-4 line-link line-clamp-3">
+          <h3 className="text-2xl min-h-[7.5rem] text-dark leading-relaxed mb-4 line-link line-clamp-3">
             <Link
               href={`/${post.slug}`}
               className="link-stretched line-link-el"

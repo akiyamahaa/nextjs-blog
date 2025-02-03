@@ -35,7 +35,7 @@ export async function generateMetadata(props) {
   };
 }
 
-const BlogDetails = async props => {
+const BlogDetails = async (props) => {
   const params = await props.params;
   const slug = params.slug;
   const currentPost = allPosts.find((post) => post.slug === slug);

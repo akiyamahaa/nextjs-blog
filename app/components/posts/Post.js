@@ -43,7 +43,7 @@ const Post = ({ post }) => {
           {formatDate(date)}
         </span>
 
-        <h3 className="text-2xl text-white leading-relaxed mb-4 line-link line-clamp-3">
+        <h3 className="text-2xl text-white leading-relaxed mb-4 line-link line-clamp-3 min-h-[7.5rem]">
           <Link
             href={`/${post.slug}`}
             className="link-stretched line-link-el"
