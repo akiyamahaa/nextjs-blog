@@ -2,6 +2,7 @@ import CustomImage from "@/components/blog/CustomImage";
 import CustomVideo from "@/components/blog/CustomVideo";
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
+import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -9,16 +10,28 @@ const MDXcomponents = {
   Link,
   CustomImage,
   CustomVideo,
-  h2: (props) => (
-    <Link className="no-underline" href={`#${slugify(props.children)}`}>
-      <h2 className="heading" id={slugify(props.children)} {...props} />
-    </Link>
-  ),
-  h3: (props) => (
-    <Link className="no-underline" href={`#${slugify(props.children)}`}>
-      <h3 className="heading" id={slugify(props.children)} {...props} />
-    </Link>
-  ),
+  h2: (props) => {
+    const text =
+      typeof props.children === "string"
+        ? props.children
+        : props.children.props.children;
+    return (
+      <Link className="no-underline" href={`#${slugify(text)}`}>
+        <h2 className="heading" id={slugify(text)} {...props} />
+      </Link>
+    );
+  },
+  h3: (props) => {
+    const text =
+      typeof props.children === "string"
+        ? props.children
+        : props.children.props.children;
+    return (
+      <Link className="no-underline" href={`#${slugify(text)}`}>
+        <h3 className="heading" id={slugify(text)} {...props} />
+      </Link>
+    );
+  },
   pre: (props) => (
     <SyntaxHighlighter
       language={props.children.props.className.split("-")[1]}

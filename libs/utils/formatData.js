@@ -23,15 +23,17 @@ export function convertBlogData(blog) {
       image:
         blog.thumbnail && blog.thumbnail.url
           ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.thumbnail.url}`
-          : "/images/blog/post-02.jpg", // Default image if missing
+          : "/images/blog/post-01.jpg", // Default image if missing
       date: formatDate(blog.publishedAt),
-      category: blog.category,
-      author: blog.author || "Anonymous",
+      category: blog.category.name,
+      categorySlug: generateSlug(blog.category.name),
+      author: blog.author || "Phước Trí",
+      authorSlug: generateSlug(blog.author || "phuoc-tri"),
       featured: blog.featured || false,
       trending: blog.trending || false,
-      post_of_the_week: false,
-      authorImage: "/images/author/default.jpg",
-      readingTime: "03 MIN TO READ",
+      post_of_the_week: true,
+      authorImage: "/images/author/its-you.webp",
+      readingTime: "10 MIN TO READ",
     },
     content: blog.content,
   };

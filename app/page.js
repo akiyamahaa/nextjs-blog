@@ -1,11 +1,9 @@
-"use client";
-
 import Banner from "@/components/home-1/Banner";
 import Layout from "@/components/home-1/Layout";
 import PostThree from "@/components/posts/Post-3";
 import PostBlack from "@/components/posts/PostBlack";
 import homepageData from "@/data/pages/_index.json";
-import allPosts from "@/data/posts.json";
+import listPosts from "@/data/posts.json";
 import { popularCategories } from "@/functions/categories";
 import { isPostInArray } from "@/libs/utils/isPostInArray";
 import { slugify } from "@/libs/utils/slugify";
@@ -13,9 +11,9 @@ import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/utils/formatDate";
 import Image from "next/image";
 import Link from "next/link";
-import { useBlog } from "./context/BlogContext";
+import { convertBlogData } from "@/libs/utils/formatData";
 
-const Home = () => {
+const Home = async () => {
   // homepage data
   const {
     latestArticles,
@@ -25,8 +23,15 @@ const Home = () => {
     postOfTheWeekSection,
   } = homepageData.frontmatter || {};
 
-  const { allPosts: test, loading } = useBlog();
-  console.log("🚀 ~ Home ~ blogs:", test);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
+    {
+      // cache: "force-cache",
+    }
+  );
+  const { data } = await res.json();
+  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
@@ -39,7 +44,7 @@ const Home = () => {
   // Fisrt post of - post of the week
   const allPostOfTheWeek =
     allPosts.filter((post) => post.frontmatter.post_of_the_week) || [];
-  const postOfTheWeek = allPostOfTheWeek[0];
+  const postOfTheWeek = allPostOfTheWeek[0] || [];
 
   // Latest posts
   const latestPosts =

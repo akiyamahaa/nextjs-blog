@@ -6,21 +6,32 @@ import SharePost from "@/components/blog/SharePost";
 import SectionHeader from "@/components/essential/SectionHeader";
 import PostThree from "@/components/posts/Post-3";
 import allAuthors from "@/data/author.json";
-import allPosts from "@/data/posts.json";
 import { getSuggestedPosts } from "@/libs/functions/getSuggestedPosts";
+import { convertBlogData } from "@/libs/utils/formatData";
 import { formatDate } from "@/libs/utils/formatDate";
 import { slugify } from "@/utils/slugify";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import listPosts from "@/data/posts.json";
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const slug = params.slug;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
+    {
+      // cache: "force-cache",
+    }
+  );
+  const { data } = await res.json();
+  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+
   const currentPost = allPosts.find((post) => post.slug === slug);
 
   if (!currentPost) {
+    ``;
     return notFound();
   }
 
@@ -38,18 +49,37 @@ export async function generateMetadata(props) {
 const BlogDetails = async (props) => {
   const params = await props.params;
   const slug = params.slug;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
+    {
+      // cache: "force-cache",
+    }
+  );
+  const { data } = await res.json();
+  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+
   const currentPost = allPosts.find((post) => post.slug === slug);
+  console.log("🚀 ~ BlogDetails ~ currentPost:", currentPost);
 
   if (!currentPost) {
     return notFound();
   }
 
-  const { title, category, image, date, author, authorImage, readingTime } =
-    currentPost.frontmatter;
+  const {
+    title,
+    category,
+    image,
+    date,
+    author,
+    authorSlug,
+    authorImage,
+    readingTime,
+  } = currentPost.frontmatter;
 
   const content = await currentPost.content;
 
-  const authorSlug = slugify(author);
+  // const authorSlug = slugify(author);
   const currentAuthor = allAuthors.find((author) => author.slug === authorSlug);
 
   // get first 3 suggested posts
@@ -206,7 +236,7 @@ const BlogDetails = async (props) => {
         <div className="container mt-12">
           <div className="row gy-6">
             {suggestedPosts.map((post, key) => (
-              <div key={key} className="md:col-6 lg:col-4">
+              <div key={`${key}-${post.title}`} className="md:col-6 lg:col-4">
                 <PostThree post={post} imageHeight={true} />
               </div>
             ))}

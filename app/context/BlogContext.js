@@ -3,6 +3,7 @@
 import { convertBlogData } from "@/libs/utils/formatData";
 import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
+import listPosts from "../../data/posts.json";
 
 // Define the blog data structure based on your Strapi response
 
@@ -18,10 +19,13 @@ export const BlogProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail,category`
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`
         );
         const data = await res.json();
-        setBlogs(data.data.map((obj) => convertBlogData(obj)));
+        setBlogs([
+          ...listPosts,
+          ...data.data.map((obj) => convertBlogData(obj)),
+        ]);
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
       } finally {
