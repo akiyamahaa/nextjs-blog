@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import PostBlack from "@/components/posts/PostBlack";
-import allPosts from "@/data/posts.json";
 import { popularCategories } from "@/functions/categories";
+import { fetchBlogs } from "@/libs/functions/getPosts";
 import { slugify } from "@/libs/utils/slugify";
 import styles from "@/styles/modules/Style.module.scss";
 import Link from "next/link";
@@ -10,9 +10,10 @@ import { notFound } from "next/navigation";
 export async function generateMetadata(props) {
   const params = await props.params;
   const slug = params.category;
+  const allPosts = await fetchBlogs();
   const categories = popularCategories(allPosts);
   const currentCategory = categories.find(
-    (category) => category.name === slug.split("-").join(" ")
+    (category) => slugify(category.name) === slug
   );
 
   if (!currentCategory) {
@@ -30,10 +31,14 @@ export async function generateMetadata(props) {
   };
 }
 
-const CategorySingle = async props => {
+const CategorySingle = async (props) => {
   const params = await props.params;
   const slug = params.category;
-  const posts = allPosts.filter((post) => post.frontmatter.category === slug);
+  const allPosts = await fetchBlogs();
+  const posts = allPosts.filter((post) => {
+    console.log(post);
+    return post.frontmatter.categorySlug === slug;
+  });
 
   if (!posts) {
     return notFound();

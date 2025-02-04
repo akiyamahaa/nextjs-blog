@@ -3,7 +3,6 @@ import Layout from "@/components/home-1/Layout";
 import PostThree from "@/components/posts/Post-3";
 import PostBlack from "@/components/posts/PostBlack";
 import homepageData from "@/data/pages/_index.json";
-import listPosts from "@/data/posts.json";
 import { popularCategories } from "@/functions/categories";
 import { isPostInArray } from "@/libs/utils/isPostInArray";
 import { slugify } from "@/libs/utils/slugify";
@@ -11,7 +10,7 @@ import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/utils/formatDate";
 import Image from "next/image";
 import Link from "next/link";
-import { convertBlogData } from "@/libs/utils/formatData";
+import { fetchBlogs } from "@/libs/functions/getPosts";
 
 const Home = async () => {
   // homepage data
@@ -23,16 +22,8 @@ const Home = async () => {
     postOfTheWeekSection,
   } = homepageData.frontmatter || {};
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
-    {
-      // cache: "force-cache",
-    }
-  );
-  const { data } = await res.json();
-  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+  const allPosts = await fetchBlogs();
   console.log("🚀 ~ Home ~ allPosts:", allPosts);
-
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
 

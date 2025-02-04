@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import AllPosts from "@/components/posts/AllPosts";
+import { fetchBlogs } from "@/libs/functions/getPosts";
 import { Suspense } from "react";
 
 export const metadata = {
@@ -7,9 +8,9 @@ export const metadata = {
   description: "All of Eyolo's Blog Posts",
 };
 
-const AllBlog = () => {
+const AllBlog = async () => {
   const postsPerPage = 8;
-
+  const allPosts = await fetchBlogs();
   return (
     <Suspense
       fallback={
@@ -19,7 +20,7 @@ const AllBlog = () => {
       }
     >
       <Layout>
-        <AllPosts postsPerPage={postsPerPage} />
+        <AllPosts postsPerPage={postsPerPage} allPosts={allPosts} />
       </Layout>
     </Suspense>
   );

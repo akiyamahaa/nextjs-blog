@@ -7,31 +7,22 @@ import SectionHeader from "@/components/essential/SectionHeader";
 import PostThree from "@/components/posts/Post-3";
 import allAuthors from "@/data/author.json";
 import { getSuggestedPosts } from "@/libs/functions/getSuggestedPosts";
-import { convertBlogData } from "@/libs/utils/formatData";
 import { formatDate } from "@/libs/utils/formatDate";
 import { slugify } from "@/utils/slugify";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import listPosts from "@/data/posts.json";
+import { fetchBlogs } from "@/libs/functions/getPosts";
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const slug = params.slug;
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
-    {
-      // cache: "force-cache",
-    }
-  );
-  const { data } = await res.json();
-  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+  const allPosts = await fetchBlogs();
 
   const currentPost = allPosts.find((post) => post.slug === slug);
 
   if (!currentPost) {
-    ``;
     return notFound();
   }
 
@@ -50,14 +41,8 @@ const BlogDetails = async (props) => {
   const params = await props.params;
   const slug = params.slug;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
-    {
-      // cache: "force-cache",
-    }
-  );
-  const { data } = await res.json();
-  const allPosts = [...listPosts, ...data.map((obj) => convertBlogData(obj))];
+  const allPosts = await fetchBlogs();
+  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   const currentPost = allPosts.find((post) => post.slug === slug);
   console.log("🚀 ~ BlogDetails ~ currentPost:", currentPost);

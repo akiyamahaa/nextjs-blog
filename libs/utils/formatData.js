@@ -4,9 +4,10 @@ export function convertBlogData(blog) {
     return title
       .toLowerCase()
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+      .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+      .replace(/đ/g, "d") // Convert "đ" to "d"
+      .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with "-"
+      .replace(/^-+|-+$/g, ""); // Trim hyphens at the start/end
   };
 
   // Function to format date

@@ -2,17 +2,17 @@
 
 import Skeleton from "@/app/components/blog/Skeleton";
 import PostTwo from "@/components/posts/Post-2";
-import allPosts from "@/data/posts.json";
 import { capitalizeText } from "@/utils/capitalizeText";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
-const AllPosts = ({ postsPerPage }) => {
+const AllPosts = ({ postsPerPage, allPosts }) => {
   const filterParams = useSearchParams();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [totalFilteredPosts, setTotalFilteredPosts] = useState(0);
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const postFilters = ["trending", "popular", "featured"];

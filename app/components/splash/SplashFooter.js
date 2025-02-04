@@ -89,7 +89,7 @@ const SplashFooter = () => {
               alt={logoText}
               width={143}
               height={30}
-              className="w-[125px] md:w-[143px] mx-auto sm:mx-0"
+              className="w-[125px] md:w-[143px] mx-auto sm:mx-0 h-auto"
             />
           </Link>
           <div className="text-[#AFAFAF] text-lg font-normal font-secondary mt-4">

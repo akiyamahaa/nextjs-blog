@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
-import allPosts from "@/data/posts.json";
 import { popularCategories } from "@/functions/categories";
+import { fetchBlogs } from "@/libs/functions/getPosts";
+import { slugify } from "@/libs/utils/slugify";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +10,9 @@ export const metadata = {
   description: "All of Eyolo's Blog Category",
 };
 
-const AllCategory = () => {
+const AllCategory = async () => {
+  const allPosts = await fetchBlogs();
+
   const categories = popularCategories(allPosts);
 
   return (
@@ -37,7 +40,7 @@ const AllCategory = () => {
             {categories.map((category, key) => (
               <div key={key} className="col">
                 <Link
-                  href={`/category/${category.name}`}
+                  href={`/category/${slugify(category.name)}`}
                   className="text-center group block h-full relative z-10 after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:rounded-md after:z-[5] after:bg-gradient-to-t after:from-black/75 hover:after:from-dark"
                 >
                   <div className="relative overflow-clip rounded-md">

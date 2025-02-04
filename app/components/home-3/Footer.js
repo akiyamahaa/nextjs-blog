@@ -42,6 +42,7 @@ const Footer = () => {
                   width={143}
                   height={30}
                   priority={true}
+                  className="w-[120px] sm:w-[143px] h-auto"
                 />
               ) : (
                 <span className="text-3xl text-black">{logoText}</span>
