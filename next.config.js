@@ -16,7 +16,7 @@ const nextConfig = {
         pathname: "/**", // Matches all paths from this hostname
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "strapi-blog-cms-production.up.railway.app",
         port: "",
         pathname: "/uploads/**",
