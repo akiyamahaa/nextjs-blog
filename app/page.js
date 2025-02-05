@@ -23,7 +23,7 @@ const Home = async () => {
   } = homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs();
-  console.log("🚀 ~ Home ~ allPosts:", allPosts);
+  // console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];

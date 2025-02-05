@@ -1,6 +1,5 @@
 import config from "@/config/site.config";
 import allAuthors from "@/data/author.json";
-import allPosts from "@/data/posts.json";
 import allVideoPosts from "@/data/video-posts.json";
 import { fetchBlogs } from "@/libs/functions/getPosts";
 
