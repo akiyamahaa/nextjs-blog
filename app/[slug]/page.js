@@ -167,7 +167,7 @@ const BlogDetails = async (props) => {
               </div>
 
               <div className="block lg:hidden mt-14 [&_p]:!text-start [&_ul]:!justify-start [&_hr]:!ml-0">
-                <SharePost title={title} slug={slug} />
+                {/* <SharePost title={title} slug={slug} /> */}
               </div>
               {/* TODO: OPEN LATER */}
               {/* <div className="border border-[#DBD8BD] mt-10 lg:mt-20 rounded-lg">
@@ -218,7 +218,7 @@ const BlogDetails = async (props) => {
             <div className="lg:col-4 xl:col-3 hidden lg:block">
               <div className="sticky top-16">
                 <TableOfContents />
-                <SharePost title={title} slug={slug} />
+                {/* <SharePost title={title} slug={slug} /> */}
               </div>
             </div>
           </div>

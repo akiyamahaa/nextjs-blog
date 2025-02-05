@@ -1,12 +1,12 @@
 import MDXcomponents from "@/components/MDXcomponents";
-import SectionHeader from "@/components/essential/SectionHeader";
 import Header from "@/components/home-3/Header";
 import LayoutThree from "@/components/home-3/Layout";
-import allAuthors from "@/data/author.json";
 import aboutData from "@/data/pages/about.json";
 import styles from "@/styles/modules/Style.module.scss";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import allAuthors from "@/data/author.json";
+import SectionHeader from "@/components/essential/SectionHeader";
 import Link from "next/link";
 
 export const metadata = {
