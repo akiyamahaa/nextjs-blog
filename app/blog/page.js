@@ -4,8 +4,8 @@ import { fetchBlogs } from "@/libs/functions/getPosts";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "All Blog Posts",
-  description: "All of Eyolo's Blog Posts",
+  title: "Danh sách bài viết",
+  description: "All of Tri's Blog Posts",
 };
 
 const AllBlog = async () => {

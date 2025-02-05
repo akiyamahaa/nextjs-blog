@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "All Blog Category",
-  description: "All of Eyolo's Blog Category",
+  title: "Danh sách chủ đề",
+  description: "All of Tri's Blog Category",
 };
 
 const AllCategory = async () => {
@@ -22,11 +22,11 @@ const AllCategory = async () => {
           <div className="row items-end gy-4">
             <div className="md:col-12">
               <p className="flex items-center justify-center gap-x-2 mb-6 sm:mb-8">
-                <span>Explorer All</span>
+                <span>Khám phá ngay</span>
               </p>
               <h1 className="text-4xl md:text-5x text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center">
                 <span className="inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
-                Category
+                Chủ đề
                 <span className="inline-block bg-white w-6 md:w-10 h-px align-middle ml-4 md:ml-6"></span>
               </h1>
             </div>

@@ -66,7 +66,7 @@ const CategorySingle = async (props) => {
           <div className="row items-end gy-4">
             <div className="col-12">
               <p className="flex items-center justify-center gap-x-2 mb-6 sm:mb-8">
-                <span>Category</span>
+                <span>CHỦ ĐỀ</span>
               </p>
               <h1 className="text-4xl md:text-5x text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center">
                 <span className="inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>

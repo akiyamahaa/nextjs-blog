@@ -23,7 +23,7 @@ const Home = async () => {
   } = homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs();
-  // console.log("🚀 ~ Home ~ allPosts:", allPosts);
+  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
@@ -52,12 +52,12 @@ const Home = async () => {
     allPosts
       .filter(
         (post) =>
-          !isPostInArray(post, allFeaturedPost) &&
-          !isPostInArray(post, allPostOfTheWeek) &&
-          !isPostInArray(post, latestPosts) &&
-          post.frontmatter.trending
+          // !isPostInArray(post, allFeaturedPost) &&
+          // !isPostInArray(post, allPostOfTheWeek) &&
+          !isPostInArray(post, latestPosts) && post.frontmatter.trending
       )
       .slice(0, 4) || [];
+  console.log("🚀 ~ Home ~ trendingPosts:", trendingPosts);
 
   // Popular posts
   const popularPosts =
