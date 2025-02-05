@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      {authors.enable && (
+      {/* {authors.enable && (
         <section className="pb-16 sm:pb-24 bg-light">
           <SectionHeader
             title={authors.title}
@@ -139,8 +139,22 @@ const About = () => {
                       </p>
                       <span className="inline-flex items-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 has-transition mt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:-translate-y-10">
                         View Posts
-                        {/* prettier-ignore */}
-                        <svg className="relative top-[2px]" width="10" height="10" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33008 17.4023L17.3301 1.40234M17.3301 1.40234H2.93008M17.3301 1.40234V15.8023" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg
+                          className="relative top-[2px]"
+                          width="10"
+                          height="10"
+                          viewBox="0 0 19 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1.33008 17.4023L17.3301 1.40234M17.3301 1.40234H2.93008M17.3301 1.40234V15.8023"
+                            stroke="black"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </span>
                     </div>
                   </Link>
@@ -169,8 +183,22 @@ const About = () => {
                       </p>
                       <span className="inline-flex items-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 has-transition mt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:-translate-y-10">
                         Join Now
-                        {/* prettier-ignore */}
-                        <svg className="relative top-[2px]" width="10" height="10" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33008 17.4023L17.3301 1.40234M17.3301 1.40234H2.93008M17.3301 1.40234V15.8023" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg
+                          className="relative top-[2px]"
+                          width="10"
+                          height="10"
+                          viewBox="0 0 19 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1.33008 17.4023L17.3301 1.40234M17.3301 1.40234H2.93008M17.3301 1.40234V15.8023"
+                            stroke="black"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </span>
                     </div>
                   </Link>
@@ -179,7 +207,7 @@ const About = () => {
             </div>
           </div>
         </section>
-      )}
+      )} */}
     </LayoutThree>
   );
 };

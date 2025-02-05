@@ -10,6 +10,7 @@ export function middleware(req) {
     "/privacy",
     "/home-2",
     "/home-3",
+    "/splash",
   ];
 
   // Example: Redirect unauthenticated users from /admin to /login

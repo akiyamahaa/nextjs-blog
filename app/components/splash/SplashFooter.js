@@ -93,7 +93,7 @@ const SplashFooter = () => {
             />
           </Link>
           <div className="text-[#AFAFAF] text-lg font-normal font-secondary mt-4">
-            Copyright 2024 By{" "}
+            Copyright 2025 By{" "}
             <Link
               href="https://themeforest.net/user/platol"
               className="text-white font-medium"

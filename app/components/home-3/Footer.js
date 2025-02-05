@@ -64,7 +64,7 @@ const Footer = () => {
 
           <div className="md:col-10 lg:col-5 xl:col-4">
             <h2 className="text-white text-3xl lg:text-4xl mb-5 lg:mb-8 text-balance capitalize !leading-snug">
-              Subscribe to weekly newsletter
+              Đăng ký nhận bản tin hàng tuần
             </h2>
 
             <form
@@ -77,7 +77,7 @@ const Footer = () => {
                 className="w-full border-none bg-transparent pl-6 text-white outline-none focus:outline-none appearance-none autofill-black rounded-full"
                 type="email"
                 name="footer-sub-email"
-                placeholder="Your Unique Email"
+                placeholder="Email"
               />
               <button
                 type="submit"
@@ -110,7 +110,7 @@ const Footer = () => {
             <div className="row gy-4">
               <div className="sm:col-5 md:col-4 lg:col-12">
                 <h3 className="text-white text-2xl sm:text-3xl mb-4">
-                  Contact
+                  Liên hệ
                 </h3>
                 <p className="uppercase">
                   <Link
@@ -149,7 +149,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="md:col-6 text-start md:text-right">
-            <p>{config.copyright}</p>
+            <p>© 2025 Tri, Inc. All rights reserved.</p>
           </div>
         </div>
       </div>
