@@ -15,20 +15,21 @@ const Footer = () => {
       <div className="container">
         <div className="border-t-2 border-[#2F2F2F] pt-10 mb-6">
           <h2 className="text-white text-4xl sm:text-5xl md:text-6xl">
-            Get In Touch
+            Có câu hỏi hay về toán học?
           </h2>
         </div>
         <div className="row gy-4">
           <div className="lg:col-5">
             <p className="font-light max-w-xs">
-              Feel free to reach out with questions or Project inquiries.
+              Hãy thoải mái liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi nào
+              hoặc muốn hợp tác trong các dự án toán học thú vị!
             </p>
           </div>
           <div className="lg:col-7">
             <div className="row gy-4">
               <div className="sm:col-5 md:col-4">
                 <h3 className="text-white text-2xl sm:text-3xl mb-4">
-                  Contact
+                  Liên hệ
                 </h3>
                 <p className="uppercase">
                   <Link

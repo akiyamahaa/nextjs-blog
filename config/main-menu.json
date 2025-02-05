@@ -1,22 +1,22 @@
 [
   {
-    "name": "Home",
+    "name": "Trang chủ",
     "link": "/"
   },
   {
-    "name": "About",
+    "name": "Về tôi",
     "link": "/about"
   },
   {
-    "name": "Blog Posts",
+    "name": "Bài viết",
     "link": "/blog"
   },
   {
-    "name": "Category",
+    "name": "Danh mục",
     "link": "/category"
   },
   {
-    "name": "Contact",
+    "name": "Liên hệ",
     "link": "/contact"
   }
 ]

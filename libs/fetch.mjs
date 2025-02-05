@@ -96,7 +96,7 @@ const getSectionFiles = async (directory, isBlog, authorPages) => {
         // set reading time to frontmatter
         const minutes = Math.ceil(readingStats.minutes);
         const formattedMinutes = String(minutes).padStart(2, "0");
-        const formattedReadingTime = `${formattedMinutes} MIN TO READ`;
+        const formattedReadingTime = `${formattedMinutes} PHÚT ĐỂ ĐỌC`;
         frontmatter.readingTime = formattedReadingTime;
       }
 

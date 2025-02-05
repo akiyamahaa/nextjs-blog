@@ -59,7 +59,6 @@ const Home = async () => {
       )
       .slice(0, 4) || [];
 
-  console.log("🚀 ~ Home ~ trendingPosts:", trendingPosts);
   // Popular posts
   const popularPosts =
     allPosts

@@ -25,7 +25,7 @@ const SharePost = ({ title, slug }) => {
     <div className="mt-8 relative">
       <hr className="w-10 mb-7 mx-auto border-t border-dark/10" />
       <p className="mb-3 text-xs opacity-65 uppercase text-center">
-        Share this post
+        Chia sẻ bài viết
       </p>
       <ul className="flex items-center justify-center gap-3">
         <li>

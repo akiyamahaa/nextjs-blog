@@ -47,7 +47,7 @@ export function convertBlogData(blog) {
       trending: blog.trending || false,
       post_of_the_week: isPublishedThisWeek(blog.publishedAt),
       authorImage: "/images/author/its-you.webp",
-      readingTime: "10 MIN TO READ",
+      readingTime: "10 phút để đọc",
     },
     content: blog.content,
   };

@@ -96,7 +96,7 @@ const AllPosts = ({ postsPerPage, allPosts }) => {
               <p className="flex items-center justify-center md:justify-start gap-x-2 mb-6 sm:mb-8">
                 {/* prettier-ignore */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2h18" /><rect width="18" height="12" x="3" y="6" rx="2" /><path d="M3 22h18" /></svg>
-                <span>Explorer All</span>
+                <span>Khám Phá Thế Giới Toán Học</span>
               </p>
               <h1 className="text-4xl md:text-5xl text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center md:text-left">
                 <span className="hidden md:inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
@@ -104,14 +104,14 @@ const AllPosts = ({ postsPerPage, allPosts }) => {
                   filterParams.get("filter") == null ||
                     filterParams.get("filter") === "" ||
                     !postFilters.includes(filterParams.get("filter"))
-                    ? "Blogs from Eyolo"
+                    ? "Bài viết của Trí"
                     : `${filterParams.get("filter")} Posts`
                 )}
               </h1>
             </div>
             <div className="md:col-4 text-center md:text-end">
               <div className="inline-flex items-center gap-x-3">
-                <p>Filter:</p>
+                <p>Bộ lọc:</p>
                 <select
                   className="bg-transparent border border-dark/20 rounded px-3 h-8 appearance-none outline-none w-28 bg-no-repeat bg-[size:13px] bg-[90%_50%] text-sm cursor-pointer"
                   style={{ backgroundImage: `url(${arrowBg})` }}
@@ -119,10 +119,10 @@ const AllPosts = ({ postsPerPage, allPosts }) => {
                   onChange={handleFilterChange}
                   value={filterParams.get("filter") || ""}
                 >
-                  <option value="latest">Latest</option>
-                  <option value="trending">Trending</option>
-                  <option value="popular">Popular</option>
-                  <option value="featured">Featured</option>
+                  <option value="latest">Mới nhất</option>
+                  <option value="trending">Xu hướng</option>
+                  <option value="popular">Phổ biến</option>
+                  <option value="featured">Yêu thích</option>
                 </select>
               </div>
             </div>
