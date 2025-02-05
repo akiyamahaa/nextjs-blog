@@ -6,7 +6,7 @@ export const fetchBlogs = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
       {
-        cache: "no-store",
+        // cache: "no-store",
       }
     );
 
