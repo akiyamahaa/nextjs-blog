@@ -1,3 +1,16 @@
+const isPublishedThisWeek = (publishedAt) => {
+  const now = new Date();
+  const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay())); // Start of the week (Sunday)
+  startOfWeek.setHours(0, 0, 0, 0); // Reset time to midnight
+
+  const endOfWeek = new Date(startOfWeek);
+  endOfWeek.setDate(startOfWeek.getDate() + 6); // End of the week (Saturday)
+  endOfWeek.setHours(23, 59, 59, 999); // End of the day
+
+  const publishedDate = new Date(publishedAt);
+  return publishedDate >= startOfWeek && publishedDate <= endOfWeek;
+};
+
 export function convertBlogData(blog) {
   // Function to generate a slug from the title
   const generateSlug = (title) => {
@@ -32,7 +45,7 @@ export function convertBlogData(blog) {
       authorSlug: generateSlug(blog.author || "phuoc-tri"),
       featured: blog.featured || false,
       trending: blog.trending || false,
-      post_of_the_week: true,
+      post_of_the_week: isPublishedThisWeek(blog.publishedAt),
       authorImage: "/images/author/its-you.webp",
       readingTime: "10 MIN TO READ",
     },

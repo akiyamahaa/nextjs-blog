@@ -4,7 +4,7 @@ import PostThree from "@/components/posts/Post-3";
 import PostBlack from "@/components/posts/PostBlack";
 import homepageData from "@/data/pages/_index.json";
 import { popularCategories } from "@/functions/categories";
-import { isPostInArray } from "@/libs/utils/isPostInArray";
+import { getRandomPost, isPostInArray } from "@/libs/utils/isPostInArray";
 import { slugify } from "@/libs/utils/slugify";
 import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/utils/formatDate";
@@ -24,18 +24,19 @@ const Home = async () => {
 
   const allPosts = await fetchBlogs();
   console.log("🚀 ~ Home ~ allPosts:", allPosts);
+
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
 
   // First featured post
   const allFeaturedPost =
     allPosts.filter((post) => post.frontmatter.featured) || [];
-  const featuredPost = allFeaturedPost[0];
+  const featuredPost = getRandomPost(allFeaturedPost);
 
   // Fisrt post of - post of the week
   const allPostOfTheWeek =
     allPosts.filter((post) => post.frontmatter.post_of_the_week) || [];
-  const postOfTheWeek = allPostOfTheWeek[0] || [];
+  const postOfTheWeek = getRandomPost(allPostOfTheWeek) || [];
 
   // Latest posts
   const latestPosts =
@@ -58,6 +59,7 @@ const Home = async () => {
       )
       .slice(0, 4) || [];
 
+  console.log("🚀 ~ Home ~ trendingPosts:", trendingPosts);
   // Popular posts
   const popularPosts =
     allPosts
