@@ -10,9 +10,9 @@ const PostThree = ({ post, imageHeight }) => {
   return (
     <article className="post-card post-category-top group relative has-line-link">
       <div className="relative">
-        <span className="post-category bg-light text-dark z-10">
+        <span className="post-category bg-sameLight text-dark z-10 bg-blend-luminosity">
           <Link
-            className="border-border transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
+            className="border-borderHome transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
             href={`/category/${slugify(category)}`}
           >
             {category}
@@ -20,11 +20,11 @@ const PostThree = ({ post, imageHeight }) => {
 
           <div className="text-light corner left">
             {/* prettier-ignore */}
-            <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+            <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
           </div>
           <div className="text-light corner bottom">
             {/* prettier-ignore */}
-            <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+            <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
           </div>
         </span>
         <Image

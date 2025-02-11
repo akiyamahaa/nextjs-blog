@@ -13,7 +13,7 @@ const Menu = ({ menuOpen, className, menuDark }) => {
   return (
     <div
       className={`absolute right-0 left-0 origin-top backdrop-blur-lg z-[9909] ${
-        menuDark ? "bg-secondary/85" : "bg-light/85"
+        menuDark ? "bg-secondary/85" : "bg-white/15"
       } text-center z-50 ${className} ${styles.menu} ${
         menuOpen ? styles.isOpen : styles.isClose
       }`}
