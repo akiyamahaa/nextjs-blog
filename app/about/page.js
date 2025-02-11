@@ -42,21 +42,21 @@ const About = () => {
               <Image src={avatar} alt="avatar" width={"100%"} className="" />
             </div>
             <div className="w-2/3 space-y-4">
-              <p class="mt-4 text-gray-700 text-lg leading-relaxed">
+              <p className="mt-4 text-gray-700 text-lg leading-relaxed">
                 Xin chào! Mình là{" "}
-                <span class="font-semibold text-blue-700">
+                <span className="font-semibold text-blue-700">
                   Nguyen Phuoc Tri
                 </span>
                 , một người yêu thích toán học đến mức có thể nói về nó cả ngày
                 mà không chán! 😆
               </p>
-              <p class="mt-4 text-gray-700 text-lg leading-relaxed">
+              <p className="mt-4 text-gray-700 text-lg leading-relaxed">
                 Bạn có từng nghĩ toán học chỉ là những con số khô khan trên sách
                 giáo khoa không? Thực ra, nó xuất hiện ở khắp mọi nơi – từ cách
                 điện thoại của bạn hoạt động, cách ngân hàng tính lãi suất, đến
                 những đường nét hoàn hảo trong một bức tranh nghệ thuật.
               </p>
-              <p class="mt-4 text-gray-700 text-lg leading-relaxed">
+              <p className="mt-4 text-gray-700 text-lg leading-relaxed">
                 Blog này là nơi mình chia sẻ những điều thú vị về toán học theo
                 cách đơn giản, dễ hiểu và hoàn toàn không đau đầu. 🤯 Có thể bạn
                 thích giải những bài toán thử thách, muốn biết toán ứng dụng vào
@@ -64,7 +64,7 @@ const About = () => {
                 dù thế nào đi nữa, mình cũng rất vui khi có bạn đồng hành trên
                 hành trình này! 🚀
               </p>
-              <p class="mt-4 text-gray-700 text-lg font-bold leading-relaxed">
+              <p className="mt-4 text-gray-700 text-lg font-bold leading-relaxed">
                 Cùng nhau khám phá thế giới toán học nhé! 🎯
               </p>
             </div>

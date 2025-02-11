@@ -7,6 +7,7 @@ export const fetchBlogs = async () => {
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
       {
         // cache: "no-store",
+        // next: { revalidate: 0 },
       }
     );
 
