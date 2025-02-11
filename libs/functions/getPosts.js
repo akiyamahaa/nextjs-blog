@@ -15,6 +15,7 @@ export const fetchBlogs = async () => {
     }
 
     const { data } = await res.json();
+    console.log("🚀 ~ fetchBlogs ~ data:", data);
     return [...allPosts, ...data.map(convertBlogData)];
   } catch (error) {
     console.error("Error fetching blogs:", error);

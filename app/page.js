@@ -6,7 +6,6 @@ import homepageData from "@/data/pages/_index.json";
 import { popularCategories } from "@/functions/categories";
 import { getRandomPost, isPostInArray } from "@/libs/utils/isPostInArray";
 import { slugify } from "@/libs/utils/slugify";
-import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/utils/formatDate";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,6 +22,7 @@ const Home = async () => {
   } = homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs();
+  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
@@ -38,7 +38,6 @@ const Home = async () => {
     allPosts.filter((post) => post.frontmatter.post_of_the_week) || [];
   const postOfTheWeek =
     getRandomPost(allPostOfTheWeek) || getRandomPost(allPosts);
-  console.log("🚀 ~ Home ~ postOfTheWeek:", postOfTheWeek);
 
   // Latest posts
   const latestPosts =
