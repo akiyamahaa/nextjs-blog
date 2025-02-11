@@ -3,21 +3,30 @@ import allPosts from "@/data/posts.json";
 
 export const fetchBlogs = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category`,
-      {
-        // cache: "no-store",
-        // next: { revalidate: 0 },
-      }
-    );
+    let page = 1;
+    let allData = [];
+    let hasMore = true;
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch blogs");
+    while (hasMore) {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=thumbnail&populate=category&pagination[page]=${page}&pagination[pageSize]=25`
+        // { cache: "no-store" }
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch blogs");
+
+      const { data, meta } = await res.json();
+      allData = [...allData, ...data];
+
+      if (page >= meta.pagination.pageCount) {
+        hasMore = false;
+      } else {
+        page++;
+      }
     }
 
-    const { data } = await res.json();
-    console.log("🚀 ~ fetchBlogs ~ data:", data);
-    return [...allPosts, ...data.map(convertBlogData)];
+    console.log("🚀 ~ fetchBlogs ~ Total blogs fetched:", allData.length);
+    return [...allPosts, ...allData.map(convertBlogData)];
   } catch (error) {
     console.error("Error fetching blogs:", error);
     return [];
