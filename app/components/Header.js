@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="border-b-[1px] border-border relative">
+      <header className="relative">
         <div className="container px-5 sm:px-3">
           <div className="row items-center flex-wrap">
             {/* menu toggle and subscribe */}
@@ -62,11 +62,10 @@ const Header = () => {
                   ></span>
                 </button>
 
-                <button
+                {/* <button
                   className="uppercase bg-[#F7EFC2] rounded-full py-2 px-4 text-sm hidden lg:flex items-center gap-2 group focus:outline-none"
                   onClick={toggleNewsletter}
                 >
-                  {/* prettier-ignore */}
                   <svg className="text-primary transition-none group-hover:has-transition group-hover:rotate-180" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1C9 5.41828 12.5817 9 17 9C12.5817 9 9 12.5817 9 17C9 12.5817 5.41828 9 1 9C5.41828 9 9 5.41828 9 1Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   <span className="relative overflow-hidden transition-none [&>span]:block">
                     <span className="group-hover:-translate-y-[200%] group-hover:scale-y-[2] group-hover:rotate-12">
@@ -76,7 +75,7 @@ const Header = () => {
                       Newsletter
                     </span>
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -84,7 +83,7 @@ const Header = () => {
             <div className="col-8 md:col-4 text-center leading-[0]">
               <Link
                 href="/"
-                className="py-4 sm:py-5 px-10 border-x-[1px] border-border inline-block focus:outline-none"
+                className="py-4 sm:py-5 px-10  inline-block focus:outline-none"
               >
                 {logo ? (
                   <Image

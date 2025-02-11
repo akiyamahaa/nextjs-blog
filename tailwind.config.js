@@ -22,6 +22,7 @@ module.exports = {
         sameLight: "#eae6ff",
         sameLight2: "#f0ebff",
         text: "#212B36",
+        text2: "#3d3f93",
       },
       backgroundImage: {
         home1: "url('/images/img/1.jpg')",

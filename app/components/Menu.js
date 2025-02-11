@@ -82,7 +82,7 @@ const Menu = ({ menuOpen, className, menuDark }) => {
           })}
         </ul>
 
-        <SocialLinks dark={menuDark} />
+        {/* <SocialLinks dark={menuDark} /> */}
       </nav>
     </div>
   );

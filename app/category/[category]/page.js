@@ -113,7 +113,7 @@ const CategorySingle = async (props) => {
                   postsPattern.includes(index) ? "lg:col-5" : "lg:col-7"
                 }`}
               >
-                <PostBlack post={post} color="secondary" />
+                <PostBlack post={post} color="text2" />
               </div>
             ))}
           </div>

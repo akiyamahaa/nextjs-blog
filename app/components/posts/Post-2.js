@@ -43,10 +43,10 @@ const PostTwo = ({ post }) => {
           </ul>
         </div>
 
-        <span className="post-category bg-light text-dark z-10">
+        <span className="post-category bg-sameLight text-dark z-10">
           <Link
             href={`/category/${slugify(category)}`}
-            className="border-border transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
+            className="border-borderHome transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
           >
             {category}
           </Link>

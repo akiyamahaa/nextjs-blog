@@ -78,7 +78,7 @@ const Search = ({ searchOpen, toggleSearch }) => {
 
   return (
     <div
-      className={`fixed bg-light inset-0 z-[99] min-h-screen overflow-y-auto transition-all duration-300 no-scrollbar ${
+      className={`fixed bg-white inset-0 z-[99] min-h-screen overflow-y-auto transition-all duration-300 no-scrollbar ${
         searchOpen
           ? "opacity-100 visible [&>div]:translate-y-0"
           : "opacity-0 invisible pointer-events-none [&>div]:translate-y-2"

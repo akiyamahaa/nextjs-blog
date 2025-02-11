@@ -32,7 +32,7 @@ const Contact = () => {
               </p>
 
               <div className="flex lg:flex-col flex-wrap gap-4 mt-8">
-                <div className="bg-light border-2 border-[#DBD8BD] rounded-full px-8 py-4 w-fit">
+                <div className="bg-sameLight border-2 border-[#000] rounded-full px-8 py-4 w-fit">
                   <span className="text-sm font-light text-[#464536]">
                     Email Address
                   </span>
@@ -42,7 +42,7 @@ const Contact = () => {
                     <span>{config.footerWidgets.email}</span>
                   </span>
                 </div>
-                <div className="bg-light border-2 border-[#DBD8BD] rounded-full px-8 py-4 w-fit">
+                <div className="bg-sameLight border-2 border-[#000] rounded-full px-8 py-4 w-fit">
                   <span className="text-sm font-light text-[#464536]">
                     Phone
                   </span>

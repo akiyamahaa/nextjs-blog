@@ -34,7 +34,7 @@ const AllCategory = async () => {
         </div>
       </section>
 
-      <section className="bg-light overflow-clip py-16 md:py-24">
+      <section className="bg-transparent overflow-clip py-16 md:py-24">
         <div className="container">
           <div className="row justify-center g-1 sm:g-3 row-cols-2 sm:row-cols-3 md:row-cols-4 lg:row-cols-5 xl:row-cols-6">
             {categories.map((category, key) => (
