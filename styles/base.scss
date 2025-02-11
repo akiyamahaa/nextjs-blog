@@ -3,7 +3,12 @@ body {
   color-scheme: dark;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply text-black font-primary;
 }
 
@@ -23,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #415649;
+    background: #2a30d8;
     border-radius: 16px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -31,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .no-scroll {
-    @apply overflow-hidden pr-[7px]
+    @apply overflow-hidden pr-[7px];
   }
 }
 

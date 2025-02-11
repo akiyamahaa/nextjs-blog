@@ -1,10 +1,9 @@
-import DeviceSizeIndicator from "@/components/essential/DeviceSizeIndicator";
+// import DeviceSizeIndicator from "@/components/essential/DeviceSizeIndicator";
 import { fontLexendDeca, fontPrata } from "@/components/essential/Fonts";
 import config from "@/config/site.config.json";
 import NextTopLoader from "nextjs-toploader";
 
 import "@/styles/styles.scss";
-import { BlogProvider } from "./context/BlogContext";
 
 export const metadata = {
   title: config.metaData.title,
@@ -40,8 +39,8 @@ export default function RootLayout({ children }) {
           zIndex={9999999}
           height={2}
         />
-        <DeviceSizeIndicator />
-        <BlogProvider>{children}</BlogProvider>
+        {/* <DeviceSizeIndicator /> */}
+        {children}
       </body>
     </html>
   );

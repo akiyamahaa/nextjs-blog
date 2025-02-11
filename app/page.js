@@ -23,7 +23,6 @@ const Home = async () => {
   } = homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs();
-  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   // All Categories with image
   const categories = popularCategories(allPosts).slice(0, 8) || [];
@@ -31,7 +30,8 @@ const Home = async () => {
   // First featured post
   const allFeaturedPost =
     allPosts.filter((post) => post.frontmatter.featured) || [];
-  const featuredPost = getRandomPost(allFeaturedPost);
+  const featuredPost =
+    getRandomPost(allFeaturedPost) || getRandomPost(allPosts);
 
   // Fisrt post of - post of the week
   const allPostOfTheWeek =
@@ -57,7 +57,6 @@ const Home = async () => {
           !isPostInArray(post, latestPosts) && post.frontmatter.trending
       )
       .slice(0, 4) || [];
-  console.log("🚀 ~ Home ~ trendingPosts:", trendingPosts);
 
   // Popular posts
   const popularPosts =
@@ -74,135 +73,134 @@ const Home = async () => {
 
   return (
     <Layout>
-      <Banner featuredPost={featuredPost} />
+      <div className="bg-home1sm md:bg-home1md lg:bg-home1 bg-center bg-cover">
+        <Banner featuredPost={featuredPost} />
+        {/* Popular Topics */}
+        {popularTopics?.enable && (
+          <section className="sm:pt-5 pb-16 sm:pb-24 overflow-hidden">
+            <div className="container mt-12">
+              <div className="mb-14">
+                <h2 className="text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mx-auto">
+                  {popularTopics.title}
+                </h2>
+              </div>
 
-      {/* Popular Topics */}
-      {popularTopics?.enable && (
-        <section className="sm:pt-5 pb-16 sm:pb-24 overflow-hidden">
-          <div className="container mt-12">
-            <div className="mb-14">
-              <h2 className="text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mx-auto">
-                {popularTopics.title}
-              </h2>
-            </div>
-
-            <ul className="text-center flex flex-wrap justify-center gap-x-3 gap-y-4 sm:gap-6 lg:gap-8 [&>li]:text-2xl sm:[&>li]:text-3xl lg:[&>li]:text-4xl [&>li]:cursor-pointer font-primary text-black [&>li]:capitalize">
-              {categories.map((category, key) => (
-                <li
-                  key={key}
-                  className="relative group transition-all duration-300"
-                >
-                  <Link
-                    href={`/category/${slugify(category.name)}`}
-                    className="inline-block"
+              <ul className="text-center flex flex-wrap justify-center gap-x-3 gap-y-4 sm:gap-6 lg:gap-8 [&>li]:text-2xl sm:[&>li]:text-3xl lg:[&>li]:text-4xl [&>li]:cursor-pointer font-primary text-black [&>li]:capitalize">
+                {categories.map((category, key) => (
+                  <li
+                    key={key}
+                    className="relative group transition-all duration-300"
                   >
-                    <span className="transition-all duration-100 relative z-30 group-hover:text-white group-hover:drop-shadow-lg">
-                      {category.name}
-                    </span>
-                    <span className="absolute h-[80px] sm:h-[100px] lg:h-[130px] w-[140px] sm:w-[200px] lg:w-[250px] left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2 opacity-0 invisible scale-90 -rotate-12 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:scale-100 overflow-hidden rounded-lg z-20 pointer-events-none mt-4 group-hover:mt-0">
-                      <Image
-                        height="130"
-                        width="250"
-                        className="object-cover h-full w-full scale-125 group-hover:scale-100 transition-all duration-300"
-                        src={category.image}
-                        alt={category.name}
-                      />
-                    </span>
-                  </Link>
-                  {key !== categories.length - 1 && (
-                    <span className="ml-3 sm:ml-6 lg:ml-8 opacity-30">/</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-      {/* Popular Topics */}
-
-      {/* Latest Articles */}
-      {latestArticles?.enable && (
-        <section className="pb-16 sm:pb-24">
-          <div className="container">
-            <div className="col-12">
-              <hr className="border-[#DBD8BD]" />
-            </div>
-
-            <div className="row mt-16 sm:mt-24">
-              <div className="lg:col-4 mb-14 lg:mb-0">
-                <div className="sticky top-12 lg:pr-12 text-center lg:text-start">
-                  <p className="text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mb-8 mx-auto md:mx-0">
-                    {latestArticles?.title}
-                  </p>
-                  <h2 className="text-3xl md:text-4xl !leading-normal mb-4">
-                    {latestArticles?.heading}
-                  </h2>
-
-                  {/* Description */}
-                  <p className="text-[#4E4C3D] lg:mb-8 leading-relaxed font-extralight uppercase text-balance text-sm sm:text-base">
-                    {latestArticles?.description}
-                  </p>
-
-                  {/* Button */}
-                  <div className="hidden lg:inline-block">
                     <Link
-                      className="button button-lg group animate-top-right"
-                      href={latestArticles?.button?.link}
+                      href={`/category/${slugify(category.name)}`}
+                      className="inline-block"
                     >
-                      <span className="relative overflow-hidden transition-none [&>span]:block">
-                        <span className="group-hover:-translate-y-[200%] group-hover:scale-y-[2] group-hover:rotate-12">
-                          {latestArticles?.button?.label}
-                        </span>
-                        <span className="absolute left-0 top-0 scale-y-[2] rotate-12 translate-y-[200%] group-hover:translate-y-0 group-hover:scale-y-100 group-hover:rotate-0">
-                          {latestArticles?.button?.label}
-                        </span>
+                      <span className="transition-all duration-100 relative z-30 group-hover:text-white group-hover:drop-shadow-lg">
+                        {category.name}
                       </span>
-                      <span className="overflow-hidden leading-none -translate-y-[2px]">
-                        {/* prettier-ignore */}
-                        <svg className="inline-block animate-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9.00005L9 1.00005M9 1.00005H1.8M9 1.00005V8.20005" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <span className="absolute h-[80px] sm:h-[100px] lg:h-[130px] w-[140px] sm:w-[200px] lg:w-[250px] left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2 opacity-0 invisible scale-90 -rotate-12 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:scale-100 overflow-hidden rounded-lg z-20 pointer-events-none mt-4 group-hover:mt-0">
+                        <Image
+                          height="130"
+                          width="250"
+                          className="object-cover h-full w-full scale-125 group-hover:scale-100 transition-all duration-300"
+                          src={category.image}
+                          alt={category.name}
+                        />
                       </span>
                     </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="lg:col-8">
-                <div className="row gy-6">
-                  {latestPosts.map((post, key) => (
-                    <div key={key} className="md:col-6">
-                      <PostThree post={post} imageHeight={true} />
-                    </div>
-                  ))}
+                    {key !== categories.length - 1 && (
+                      <span className="ml-3 sm:ml-6 lg:ml-8 opacity-30">/</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
-                  <div className="col-12 block lg:hidden">
+        {/* Latest Articles */}
+        {latestArticles?.enable && latestPosts.length > 0 && (
+          <section className="pb-16 sm:pb-24">
+            <div className="container">
+              <div className="col-12">
+                <hr className="border-[#DBD8BD]" />
+              </div>
+
+              <div className="row mt-16 sm:mt-24">
+                <div className="lg:col-4 mb-14 lg:mb-0">
+                  <div className="sticky top-12 lg:pr-12 text-center lg:text-start">
+                    <p className="text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mb-8 mx-auto md:mx-0">
+                      {latestArticles?.title}
+                    </p>
+                    <h2 className="text-3xl md:text-4xl !leading-normal mb-4">
+                      {latestArticles?.heading}
+                    </h2>
+
+                    {/* Description */}
+                    <p className="text-[#4E4C3D] lg:mb-8 leading-relaxed font-extralight uppercase text-balance text-sm sm:text-base">
+                      {latestArticles?.description}
+                    </p>
+
                     {/* Button */}
-                    <Link
-                      className="button button-lg group animate-top-right w-fit mx-auto"
-                      href={latestArticles?.button?.link}
-                    >
-                      <span className="relative overflow-hidden transition-none [&>span]:block">
-                        <span className="group-hover:-translate-y-[200%] group-hover:scale-y-[2] group-hover:rotate-12">
-                          {latestArticles?.button?.label}
+                    <div className="hidden lg:inline-block">
+                      <Link
+                        className="button button-lg group animate-top-right"
+                        href={latestArticles?.button?.link}
+                      >
+                        <span className="relative overflow-hidden transition-none [&>span]:block">
+                          <span className="group-hover:-translate-y-[200%] group-hover:scale-y-[2] group-hover:rotate-12">
+                            {latestArticles?.button?.label}
+                          </span>
+                          <span className="absolute left-0 top-0 scale-y-[2] rotate-12 translate-y-[200%] group-hover:translate-y-0 group-hover:scale-y-100 group-hover:rotate-0">
+                            {latestArticles?.button?.label}
+                          </span>
                         </span>
-                        <span className="absolute left-0 top-0 scale-y-[2] rotate-12 translate-y-[200%] group-hover:translate-y-0 group-hover:scale-y-100 group-hover:rotate-0">
-                          {latestArticles?.button?.label}
+                        <span className="overflow-hidden leading-none -translate-y-[2px]">
+                          {/* prettier-ignore */}
+                          <svg className="inline-block animate-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9.00005L9 1.00005M9 1.00005H1.8M9 1.00005V8.20005" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </span>
-                      </span>
-                      <span className="overflow-hidden leading-none -translate-y-[2px]">
-                        {/* prettier-ignore */}
-                        <svg className="inline-block animate-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9.00005L9 1.00005M9 1.00005H1.8M9 1.00005V8.20005" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      </span>
-                    </Link>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:col-8">
+                  <div className="row gy-6">
+                    {latestPosts.map((post, key) => (
+                      <div key={key} className="md:col-6">
+                        <PostThree post={post} imageHeight={true} />
+                      </div>
+                    ))}
+
+                    <div className="col-12 block lg:hidden">
+                      {/* Button */}
+                      <Link
+                        className="button button-lg group animate-top-right w-fit mx-auto"
+                        href={latestArticles?.button?.link}
+                      >
+                        <span className="relative overflow-hidden transition-none [&>span]:block">
+                          <span className="group-hover:-translate-y-[200%] group-hover:scale-y-[2] group-hover:rotate-12">
+                            {latestArticles?.button?.label}
+                          </span>
+                          <span className="absolute left-0 top-0 scale-y-[2] rotate-12 translate-y-[200%] group-hover:translate-y-0 group-hover:scale-y-100 group-hover:rotate-0">
+                            {latestArticles?.button?.label}
+                          </span>
+                        </span>
+                        <span className="overflow-hidden leading-none -translate-y-[2px]">
+                          {/* prettier-ignore */}
+                          <svg className="inline-block animate-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9.00005L9 1.00005M9 1.00005H1.8M9 1.00005V8.20005" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      )}
-      {/* Latest Articles */}
+          </section>
+        )}
+      </div>
 
       {/* Popular Articles */}
-      {popularArticles?.enable && (
+      {popularArticles?.enable && popularPosts.length > 0 && (
         <section className={`py-16 sm:py-24 ${styles.darkBg}`}>
           <div className="container">
             <div className="row">
@@ -278,10 +276,9 @@ const Home = async () => {
           </div>
         </section>
       )}
-      {/* Popular Articles */}
 
       {/* Trending Articles */}
-      {trendingArticles?.enable && (
+      {trendingArticles?.enable && trendingPosts.length > 0 && (
         <section className="pt-16 sm:pt-24 pb-6 sm:pb-12 bg-light">
           <div className="container">
             <div className="row justify-center">
@@ -379,10 +376,9 @@ const Home = async () => {
           </div>
         </section>
       )}
-      {/* Trending Articles */}
 
       {/* Post of the Week */}
-      {postOfTheWeekSection?.enable && (
+      {postOfTheWeekSection?.enable && postOfTheWeek.length > 0 && (
         <section className={`py-16 sm:py-24 overflow-clip ${styles.waveBg}`}>
           <div className="container">
             <div className="border-t pt-8 border-[#627669]">
@@ -515,7 +511,6 @@ const Home = async () => {
           </div>
         </section>
       )}
-      {/* Post of the Week */}
     </Layout>
   );
 };

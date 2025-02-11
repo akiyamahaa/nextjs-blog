@@ -35,7 +35,7 @@ const Banner = ({ featuredPost }) => {
   return (
     <>
       <div className="container">
-        <div className="row my-6 sm:my-10">
+        <div className="row py-6 sm:py-10">
           <div className="lg:col-7">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-8">
@@ -184,7 +184,7 @@ const Banner = ({ featuredPost }) => {
 
           <div className="lg:col-5 relative hidden lg:block">
             <div className="post-card post-category-top relative">
-              <div className="post-category bg-light z-10">
+              <div className="post-category bg-sameLight z-10">
                 <div className="flex items-center justify-end relative z-20">
                   {/* menu toggle */}
                   <button
@@ -226,11 +226,11 @@ const Banner = ({ featuredPost }) => {
 
                 <div className="text-light corner left">
                   {/* prettier-ignore */}
-                  <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+                  <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
                 </div>
                 <div className="text-light corner bottom">
                   {/* prettier-ignore */}
-                  <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+                  <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
                 </div>
               </div>
             </div>
@@ -242,21 +242,21 @@ const Banner = ({ featuredPost }) => {
               }`}
             >
               <div className="absolute w-full h-full">
-                <span className="post-category text-dark bg-light z-10">
+                <span className="post-category text-dark bg-sameLight z-10">
                   <Link
                     href={`/category/${slugify(category)}`}
-                    className="border-border transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
+                    className="border-borderHome transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
                   >
                     {category}
                   </Link>
 
                   <div className="text-light corner left">
                     {/* prettier-ignore */}
-                    <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+                    <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
                   </div>
                   <div className="text-light corner bottom">
                     {/* prettier-ignore */}
-                    <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
+                    <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="#efeaff"></path></svg>
                   </div>
                 </span>
                 <Image

@@ -12,12 +12,19 @@ module.exports = {
     extend: {
       colors: {
         primary: "#ff4848",
-        secondary: "#415649",
+        secondary: "#2a30d8",
         black: "#000000",
         dark: "#060C14",
         light: "#E7E5D4",
         border: "#DCDBD0",
+        borderHome: "#919EAB52",
         borderLight: "#BFBEB5",
+        sameLight: "#efeaff",
+      },
+      backgroundImage: {
+        home1: "url('/images/img/1.jpg')",
+        home1md: "url('/images/img/1md.jpg')",
+        home1sm: "url('/images/img/1sm.jpg')",
       },
       fontFamily: {
         primary: ["var(--font-primary)", "serif"],

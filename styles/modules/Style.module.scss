@@ -1,27 +1,39 @@
 .postBg {
-  background: linear-gradient(180deg, #415649 0%, rgba(65, 86, 73, 0.95) 21.14%, rgba(65, 86, 73, 0.91) 44.02%, rgba(65, 86, 73, 0.9) 100%), url('/images/home-2/home-2-banner.webp');
+  background: linear-gradient(
+      180deg,
+      #2a30d8 0%,
+      rgba(42, 48, 216, 0.95) 21.14%,
+      rgba(42, 48, 216, 0.91) 44.02%,
+      rgba(42, 48, 216, 0.9) 100%
+    ),
+    url("/images/home-2/home-2-banner.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.darkBg, .darkBgTwo {
-  background-image: url('/images/dark-bg.webp');
+.darkBg,
+.darkBgTwo {
+  background-image: url("/images/dark-bg.webp");
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
   background-color: black;
 }
 .darkBgTwo {
-  background-image: url('/images/dark-bg-2.webp');
+  background-image: url("/images/dark-bg-2.webp");
 }
 .waveBg {
-  background: url('/images/wave-bg.webp');
+  background: url("/images/wave-bg.webp");
   background-size: 100%;
   background-position: top center;
-  background-color: #415649;
+  background-color: #2a30d8;
 }
 .dotBg {
-  background: radial-gradient(circle at 1px 1px, rgba(#415649, .25) 1px, transparent 0);
+  background: radial-gradient(
+    circle at 1px 1px,
+    rgba(#2a30d8, 0.25) 1px,
+    transparent 0
+  );
   background-size: 20px 20px;
   background-position: center;
 }

@@ -103,7 +103,7 @@ const Newsletter = ({ newsletterOpen, toggleNewsletter }) => {
                     </div>
                     <div className="flex items-center gap-2 max-w-[80%] sm:max-w-none pr-[70px] sm:pr-[50px] text-balance">
                       {/* prettier-ignore */}
-                      <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10.3333L8.4615 13L14 7M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#415649" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <svg className="flex-shrink-0" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10.3333L8.4615 13L14 7M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="#2a30d8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       <span className="text-sm text-[#464536] font-light">
                         Tôi mong muốn nhận được các email khuyến mãi trong tương
                         lai.
