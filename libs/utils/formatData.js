@@ -27,6 +27,12 @@ export function convertBlogData(blog) {
   const formatDate = (isoDate) => {
     return new Date(isoDate).toISOString().split("T")[0];
   };
+  const getDistributedDate = (publishedAt, id) => {
+    const startDate = new Date(publishedAt); // Use the existing publishedAt date
+    const daysOffset = id * 3; // Space out each post by 3 days (adjust as needed)
+    startDate.setDate(startDate.getDate() - daysOffset);
+    return startDate.toISOString();
+  };
 
   return {
     slug: generateSlug(blog.title),
@@ -38,7 +44,7 @@ export function convertBlogData(blog) {
         blog.thumbnail && blog.thumbnail.url
           ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.thumbnail.url}`
           : "/images/blog/post-01.jpg", // Default image if missing
-      date: formatDate(blog.publishedAt),
+      date: formatDate(getDistributedDate(blog.publishedAt, blog.id)),
       category: blog.category.name,
       categorySlug: generateSlug(blog.category.name),
       author: blog.author || "Phước Trí",

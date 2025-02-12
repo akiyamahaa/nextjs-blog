@@ -25,7 +25,6 @@ export const fetchBlogs = async () => {
       }
     }
 
-    console.log("🚀 ~ fetchBlogs ~ Total blogs fetched:", allData.length);
     return [...allPosts, ...allData.map(convertBlogData)];
   } catch (error) {
     console.error("Error fetching blogs:", error);
