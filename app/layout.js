@@ -21,7 +21,7 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    images: "/images/ogimage.jpg",
+    images: "/images/ogimage.png",
   },
 };
 
