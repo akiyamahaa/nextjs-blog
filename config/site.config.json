@@ -4,10 +4,10 @@
     "description": "A modern and feature-rich blog template built with React, NextJS, and Tailwind CSS.",
     "author": "",
     "keyword": "minimal",
-    "ogImage": "/images/ogimage.jpg"
+    "ogImage": "/images/ogimage.png"
   },
   "baseURL": "",
-  "siteURL": "https://eyolo-nextjs.vercel.app",
+  "siteURL": "https://blog.makiacademy.com/",
   "logo": "/images/img/logo.png",
   "logoWhite": "/images/img/logo.png",
   "logoText": "Eyolo",

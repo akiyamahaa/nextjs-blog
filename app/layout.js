@@ -16,7 +16,7 @@ export const metadata = {
     icon: "/images/favicon.png",
   },
 
-  metadataBase: new URL("https://eyolo-nextjs.vercel.app"),
+  metadataBase: new URL("https://blog.makiacademy.com/"),
   alternates: {
     canonical: "/",
   },
